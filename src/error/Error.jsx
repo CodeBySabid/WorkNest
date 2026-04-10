@@ -1,21 +1,57 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import { motion } from "framer-motion";
+import { Link } from "react-router";
 
-const Error = () => {
-    return (
-        <div>
-            <section class="bg-white dark:bg-gray-900">
-                <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-                    <div class="mx-auto max-w-screen-sm text-center">
-                        <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500">404</h1>
-                        <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Something's missing.</p>
-                        <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">Sorry, we can't find that page. You'll find lots to explore on the home page. </p>
-                        <NavLink to={'/'} class="inline-flex text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4">Back to Homepage</NavLink>
-                    </div>
-                </div>
-            </section>
-        </div>
-    );
-};
+export default function Error() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 px-4">
+      
+      <div className="text-center text-white">
+        
+        {/* Animated 404 */}
+        <motion.h1
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.6, type: "spring" }}
+          className="text-7xl md:text-9xl font-extrabold"
+        >
+          404
+        </motion.h1>
 
-export default Error;
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mt-4 text-lg md:text-2xl"
+        >
+          Oops! Page not found
+        </motion.p>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-2 text-sm md:text-base text-gray-200"
+        >
+          The page you are looking for doesn’t exist or has been moved.
+        </motion.p>
+
+        {/* Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          <Link
+            to="/"
+            className="inline-block mt-6 px-6 py-3 bg-white text-purple-600 font-semibold rounded-full shadow-lg hover:bg-gray-100 transition"
+          >
+            Go Home
+          </Link>
+        </motion.div>
+
+      </div>
+    </div>
+  );
+}
