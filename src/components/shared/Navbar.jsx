@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "/image.png";
 import {
@@ -90,10 +90,10 @@ const Navbar = () => {
       >
         <div className="flex z-50 justify-between items-center px-4">
           {/* Logo */}
-          <h1 className="flex items-center gap-1 font-semibold text-xl md:text-2xl text-blue-500">
+          <Link to={'/'} className="flex items-center gap-1 font-semibold text-xl md:text-2xl text-blue-500">
             <img className="w-8 h-7 md:w-10 md:h-8" src={logo} alt="logo" />
             WorkNest
-          </h1>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-6">
